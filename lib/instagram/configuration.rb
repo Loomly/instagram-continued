@@ -21,6 +21,7 @@ module Instagram
       no_response_wrapper
       loud_logger
       sign_requests
+      connection_builder
     ].freeze
 
     # By default, don't set a user access token
@@ -81,6 +82,8 @@ module Instagram
     # By default, requests are not signed
     DEFAULT_SIGN_REQUESTS = false
 
+    DEFAULT_CONNECTION_BUILDER = nil
+
     # @private
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -118,6 +121,7 @@ module Instagram
       self.no_response_wrapper = DEFAULT_NO_RESPONSE_WRAPPER
       self.loud_logger        = DEFAULT_LOUD_LOGGER
       self.sign_requests      = DEFAULT_SIGN_REQUESTS
+      self.connection_builder = DEFAULT_CONNECTION_BUILDER
     end
   end
 end

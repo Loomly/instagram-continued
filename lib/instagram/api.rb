@@ -9,11 +9,13 @@ module Instagram
     attr_accessor *Configuration::VALID_OPTIONS_KEYS
 
     # Creates a new API
-    def initialize(options = {})
+    def initialize(options = {}, &block)
       options = Instagram.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end
+
+      self.connection_builder = block if block_given?
     end
 
     def config

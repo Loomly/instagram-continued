@@ -11,8 +11,8 @@ module Instagram
   # Alias for Instagram::Client.new
   #
   # @return [Instagram::Client]
-  def self.client(options = {})
-    Instagram::Client.new(options)
+  def self.client(options = {}, &block)
+    Instagram::Client.new(options, &block)
   end
 
   # Delegate to Instagram::Client
